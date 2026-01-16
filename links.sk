@@ -1,0 +1,26 @@
+command /links:
+    trigger:
+        set {_menu} to chest inventory with 3 rows named "&c&lChoose Your Link!"
+        set slot 13 of {_menu} to blue shulker box named "&bDiscord Server"
+        set slot 15 of {_menu} to red shulker box named "&cYoutube"
+        set slot 11 of {_menu} to orange shulker box named "&6YourText"
+        open {_menu} to player
+
+on inventory click:
+    if name of event-inventory is "&c&lChoose Your Link!":
+        cancel event
+
+        if clicked slot is 13:
+            play sound "entity.player.levelup" to player
+            send "<link:example>&9&lClick this to join the Discord Community!" to player
+            close player's inventory
+
+        else if clicked slot is 15:
+            play sound "entity.player.levelup" to player
+            send "<link:example>&c&lClick this to go and Subscribe!" to player
+            close player's inventory 
+
+        else if clicked slot is 11:
+            play sound "entity.player.levelup" to player
+            send "<link:example>&6&lClick this to [your text]!" to player
+            close player's inventory 
